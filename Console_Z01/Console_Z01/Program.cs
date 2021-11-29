@@ -28,41 +28,40 @@ namespace Console_Z01
                         repit = true;
                         Console.WriteLine("|---------------------------");
                     }
-                    else
+                    else if (repitTxT == "Нет")
                         repit = false;
-                } catch (Exception)
+                    else
+                    {
+                        Console.WriteLine("|---------------------------");
+                        Console.WriteLine("| Некорректный ввод данных!");
+                        repit = false;
+                    }
+                } 
+                catch (Exception)
                 {
                     Console.WriteLine("|---------------------------");
                     Console.WriteLine("| Некорректный ввод данных!");
                     Console.WriteLine("| Попробовать снова? Да / Нет");
                     Console.Write("| : ");
                     string repitTxT = Convert.ToString(Console.ReadLine());
-                    try
+                    if (repitTxT == "Да")
                     {
-                        if (repitTxT == "Да")
+                        repit = true;
+                        Console.WriteLine("|---------------------------");
+                    }
+                    else
+                    {
+                        if (repitTxT == "Нет")
                         {
-                            repit = true;
-                            Console.WriteLine("|---------------------------");
+                            repit = false;
                         }
                         else
                         {
-                            if (repitTxT == "Нет")
-                            {
-                                repit = false;
-                            }
-                            else
-                            {
-                                Console.WriteLine("|---------------------------");
-                                Console.WriteLine("| Некорректный ввод данных!");
-                                repit = false;
-                            }
-                        } 
-                    } catch (Exception)
-                    {
-                        Console.WriteLine("|---------------------------");
-                        Console.WriteLine("| Некорректный ввод данных!");
-                        repit = false;
-                    }   
+                            Console.WriteLine("|---------------------------");
+                            Console.WriteLine("| Некорректный ввод данных!");
+                            repit = false;
+                        }
+                    } 
                 }
             }
         }
