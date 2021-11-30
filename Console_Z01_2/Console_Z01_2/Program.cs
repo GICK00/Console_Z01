@@ -8,9 +8,9 @@ namespace Console_Z01_2
         {
             Console.WriteLine("| Проверка суммы цифр числа на не четность.");
             bool repit = true;
-            try
+            while (repit == true)
             {
-                while (repit == true)
+                try
                 {
                     Console.Write("| Введите двузначное число: ");
                     int n = Convert.ToInt32(Console.ReadLine());
@@ -34,23 +34,7 @@ namespace Console_Z01_2
                         }
 
                         Console.WriteLine("|---------------------------");
-                        Console.WriteLine("| Попробовать снова? Да / Нет");
-                        Console.Write("| : ");
-                        string repitTxT = Convert.ToString(Console.ReadLine());
-
-                        if (repitTxT == "Да")
-                        {
-                            repit = true;
-                            Console.WriteLine("|---------------------------");
-                        }
-                        else if (repitTxT == "Нет")
-                            repit = false;
-                        else
-                        {
-                            Console.WriteLine("|---------------------------");
-                            Console.WriteLine("| Некорректный ввод данных!");
-                            repit = false;
-                        }
+                        rep(out repit);
                     }
                     else
                     {
@@ -58,33 +42,32 @@ namespace Console_Z01_2
                         Console.WriteLine("|---------------------------");
                     }
                 }
+                catch (Exception)
+                {
+                    Console.WriteLine("|---------------------------");
+                    Console.WriteLine("| Некорректный ввод данных!");
+                    rep(out repit);
+                }
             }
-            catch (Exception)
+        }
+        static void rep(out bool repit)
+        {
+            Console.WriteLine("| Попробовать снова? Да / Нет");
+            Console.Write("| : ");
+            string repitTxT = Convert.ToString(Console.ReadLine());
+
+            if (repitTxT == "Да")
+            {
+                repit = true;
+                Console.WriteLine("|---------------------------");
+            }
+            else if (repitTxT == "Нет")
+                repit = false;
+            else
             {
                 Console.WriteLine("|---------------------------");
                 Console.WriteLine("| Некорректный ввод данных!");
-                Console.WriteLine("| Попробовать снова? Да / Нет");
-                Console.Write("| : ");
-                string repitTxT = Convert.ToString(Console.ReadLine());
-
-                if (repitTxT == "Да")
-                {
-                    repit = true;
-                    Console.WriteLine("|---------------------------");
-                }
-                else
-                {
-                    if (repitTxT == "Нет")
-                    {
-                        repit = false;
-                    }
-                    else
-                    {
-                        Console.WriteLine("|---------------------------");
-                        Console.WriteLine("| Некорректный ввод данных!");
-                        repit = false;
-                    }
-                }
+                repit = false;
             }
         }
     }

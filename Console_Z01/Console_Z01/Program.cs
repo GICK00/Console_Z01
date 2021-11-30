@@ -9,7 +9,6 @@ namespace Console_Z01
             bool repit = true;
             while(repit == true)
             {
-                repit = false;
                 try
                 {
                     Console.WriteLine("| Введите объем куба.");
@@ -19,50 +18,34 @@ namespace Console_Z01
                     Console.WriteLine("| Ребро куба = " + result);
 
                     Console.WriteLine("|---------------------------");
-                    Console.WriteLine("| Попробовать снова? Да / Нет");
-                    Console.Write("| : ");
-                    string repitTxT = Convert.ToString(Console.ReadLine());
-
-                    if (repitTxT == "Да")
-                    {
-                        repit = true;
-                        Console.WriteLine("|---------------------------");
-                    }
-                    else if (repitTxT == "Нет")
-                        repit = false;
-                    else
-                    {
-                        Console.WriteLine("|---------------------------");
-                        Console.WriteLine("| Некорректный ввод данных!");
-                        repit = false;
-                    }
+                    rep(out repit);
                 } 
                 catch (Exception)
                 {
                     Console.WriteLine("|---------------------------");
                     Console.WriteLine("| Некорректный ввод данных!");
-                    Console.WriteLine("| Попробовать снова? Да / Нет");
-                    Console.Write("| : ");
-                    string repitTxT = Convert.ToString(Console.ReadLine());
-                    if (repitTxT == "Да")
-                    {
-                        repit = true;
-                        Console.WriteLine("|---------------------------");
-                    }
-                    else
-                    {
-                        if (repitTxT == "Нет")
-                        {
-                            repit = false;
-                        }
-                        else
-                        {
-                            Console.WriteLine("|---------------------------");
-                            Console.WriteLine("| Некорректный ввод данных!");
-                            repit = false;
-                        }
-                    } 
+                    rep(out repit);
                 }
+            }
+        }
+        static void rep(out bool repit)
+        {
+            Console.WriteLine("| Попробовать снова? Да / Нет");
+            Console.Write("| : ");
+            string repitTxT = Convert.ToString(Console.ReadLine());
+
+            if (repitTxT == "Да")
+            {
+                repit = true;
+                Console.WriteLine("|---------------------------");
+            }
+            else if (repitTxT == "Нет")
+                repit = false;
+            else
+            {
+                Console.WriteLine("|---------------------------");
+                Console.WriteLine("| Некорректный ввод данных!");
+                repit = false;
             }
         }
     }
